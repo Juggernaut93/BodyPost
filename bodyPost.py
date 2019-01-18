@@ -3,9 +3,10 @@ import glob
 import fnmatch
 import webbrowser
 
-#Set your Info here!
-cmdr_name="CMDR Flammenhand"
+#Set your Info here!#####
+cmdr_name="CMDR FillInYourNameHere"
 current_region="Inner Orion Spur"
+#########################
 
 #Get most recent Journal File
 newest = max(glob.iglob('*.log'), key=os.path.getctime)
