@@ -17,7 +17,9 @@ How to "install":<br>
 2: Download/copy the script.<br>
 3: Place it into the same folder that your Journal Files get written to.<br>
    Usually that's C:\Users\<username>\Saved Games\Frontier Developments\Elite Dangerous<br>
-4: Open up the Script in a text editor and change your CMDR Name. It's the 7th Line, in the marks.
+4: Open up the Script in a text editor and change your CMDR Name. It's the 7th Line, in the marks.<br>
+5: If you want to disable continuous mode, set `run_continuously` to False.
    
 Usage:<br>
-If you have Python installed, double-clicking the python script should suffice. You can also bind it to a keymap - google is your friend. :)
+If you have Python installed, double-clicking the python script should suffice. You can also bind it to a keymap - google is your friend. :)<br>
+When running the script in continuous mode, you can interrupt it using Ctrl+C.
