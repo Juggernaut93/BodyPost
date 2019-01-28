@@ -1,9 +1,16 @@
 # BodyPost
 A Python Script for Distant Worlds 2 - Geology &amp; Biology Dept.
 
+Original script by CMDR Flammenhand/ThePrinceOfEverbang
+
 Purpose:<br>
-If you just scanned a planet that has POIs on it, run the script and it will open up the scouting report form
-with most fields already filled in.
+The script will read the Elite: Dangerous Player Journal files and when a scan is performed it will open in the browser the scouting report form with most fields already filled in.<br>
+The script has two modes of operation:<br>
+1) It can continuously run in background and it will open the browser for every landable planet scanned.
+2) It can be run for a single scan; in this case the script will only open the browser for the last body scanned (if landable).
+
+The script will not open the form if you have scanned a star/brown dwarf/etc. or if the scanned planet is not landable (because it such cases it cannot have any POIs, so no form is needed).
+Note that the journal does NOT currently contain info about the number of POIs for each planet, so the script WILL open the form when scanning planets that are landable but do not have POIs.
 
 How to "install":<br>
 1: Install Python 3.x. https://www.python.org/<br>
