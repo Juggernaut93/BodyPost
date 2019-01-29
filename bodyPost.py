@@ -9,18 +9,17 @@ cmdr_name="CMDR FillInYourNameHere"
 current_region="Inner Orion Spur"
 #########################
 #Set to false to only run for last body scanned#
-run_continuously = True
+run_continuously = False
 polling_interval = 0.5 # seconds between journal checks
 #########################
 
 last_body_opened = None
-first_run = True
 
-def check():
-	global last_body_opened, first_run
+def check(first_run = False):
+	global last_body_opened
 	
 	#Get most recent Journal File
-	newest = max(glob.iglob('*.log'), key=os.path.getctime)
+	newest = max(glob.iglob('Journal*.log'), key=os.path.getctime)
 	journal = open(newest,"r")
 	journal_content = journal.readlines()
 	journal_content.reverse()
@@ -39,6 +38,7 @@ def check():
 			break
 	
 	if last_scan == "" or last_system == "":
+		print("Insufficient information in last Journal log.")
 		return #insufficient information
 	
 	##Time to pretty-fy!
@@ -116,7 +116,6 @@ def check():
 		return
 	
 	if first_run and run_continuously:
-		first_run = False
 		return # first scan is from before starting the program, just run til here to save last scan body
 	
 	print(current_region)
@@ -128,11 +127,13 @@ def check():
 	
 	webbrowser.open('https://airtable.com/shrpoiulL1A3IFGeu?prefill_Region='+current_region+'&prefill_System='+star_name+'&prefill_Planet+Name='+body_name+'&prefill_Planet+Type='+planet_class+'&prefill_Planet+Materials='+material_list+'&prefill_Scouted+by='+cmdr_name)
 
-while True:
-	try:
-		check()
-		if not run_continuously:
+if not run_continuously:
+	check()
+else:
+	check(True)
+	while True:
+		try:
+			time.sleep(polling_interval)
+			check()
+		except KeyboardInterrupt:
 			break
-		time.sleep(polling_interval)
-	except KeyboardInterrupt:
-		break
