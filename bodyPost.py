@@ -17,7 +17,7 @@ last_body_opened = None
 first_run = True
 
 def check():
-	global last_body_opened
+	global last_body_opened, first_run
 	
 	#Get most recent Journal File
 	newest = max(glob.iglob('*.log'), key=os.path.getctime)
@@ -63,10 +63,6 @@ def check():
 			if landable == "false":
 				print("Planet %s is not landable." % body_name)
 				return #planet is not landable and has no POIs
-	
-	if first_run and run_continuously:
-		first_run = False
-		return # first scan is from before starting the program, just run til here to save last scan time
 	
 	star_name = last_system[2].split('"')[3]
 	
@@ -118,6 +114,10 @@ def check():
 		last_body_opened = body_name
 	else:
 		return
+	
+	if first_run and run_continuously:
+		first_run = False
+		return # first scan is from before starting the program, just run til here to save last scan body
 	
 	print(current_region)
 	print(star_name)
