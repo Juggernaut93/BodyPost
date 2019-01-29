@@ -1,7 +1,7 @@
 # BodyPost
 A Python Script for Distant Worlds 2 - Geology &amp; Biology Dept.
 
-Original script by CMDR Flammenhand/ThePrinceOfEverbang
+Original script by CMDR Flammenhand/ThePrinceOfEverbang.
 
 Purpose:<br>
 The script will read the Elite: Dangerous Player Journal files and when a scan is performed it will open in the browser the scouting report form with most fields already filled in.<br>

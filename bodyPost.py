@@ -13,6 +13,7 @@ run_continuously = True
 #########################
 
 last_time_opened = None
+first_run = True
 
 def check():
 	global last_time_opened
@@ -35,6 +36,9 @@ def check():
 		if fnmatch.fnmatch(entry,'*"StarSystem":*'):
 			last_system = entry
 			break
+	
+	if last_scan == "" or last_system == "":
+		return #insufficient information
 	
 	##Time to pretty-fy!
 	body_name = ""
@@ -62,7 +66,11 @@ def check():
 			if landable == "false":
 				print("Planet %s is not landable." % body_name)
 				return #planet is not landable and has no POIs
-
+	
+	if first_run and run_continuously:
+		first_run = False
+		return # first scan is from before starting the program, just run til here to save last scan time
+	
 	star_name = last_system[2].split('"')[3]
 	
 	
