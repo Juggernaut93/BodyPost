@@ -5,7 +5,7 @@ import webbrowser
 import time
 
 #Set your Info here!#####
-cmdr_name="Juggernaut93"
+cmdr_name="CMDR FillInYourNameHere"
 current_region="Inner Orion Spur"
 #########################
 #Set to false to only run for last body scanned#
