@@ -53,6 +53,11 @@ def check(first_run = False):
 	for segment in last_scan:
 		if "BodyName" in segment:
 			body_name = segment.split('"')[3]
+			#avoid opening the browser twice for the same body
+			if body_name != last_body_opened:
+				last_body_opened = body_name
+			else:
+				return
 		if "PlanetClass" in segment:
 			planet_class = segment.split('"')[3]
 		#if '"timestamp":' in segment:
@@ -108,12 +113,6 @@ def check(first_run = False):
 	body_name = body_name.lower()
 	body_name = body_name.swapcase()
 	material_list = material_list.title()
-	
-	#avoid opening the browser twice for the same body
-	if body_name != last_body_opened:
-		last_body_opened = body_name
-	else:
-		return
 	
 	if first_run and run_continuously:
 		return # first scan is from before starting the program, just run til here to save last scan body
