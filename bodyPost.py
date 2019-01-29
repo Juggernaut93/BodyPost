@@ -65,12 +65,14 @@ def check(first_run = False):
 			#print(time_sc)
 		if '"Landable"' in segment:
 			landable = segment.split('":')[1]
-			if landable == "false":
+			if landable == "false" and not (first_run and run_continuously): # don't print error messages in first run
 				print("Planet %s is not landable." % body_name)
 				return #planet is not landable and has no POIs
 	
-	star_name = last_system[2].split('"')[3]
+	if first_run and run_continuously:
+		return # first scan is from before starting the program, just run til here to save last scan body
 	
+	star_name = last_system[2].split('"')[3]
 	
 	#Materials are a bit more work.
 	material_list = ""
@@ -113,9 +115,6 @@ def check(first_run = False):
 	body_name = body_name.lower()
 	body_name = body_name.swapcase()
 	material_list = material_list.title()
-	
-	if first_run and run_continuously:
-		return # first scan is from before starting the program, just run til here to save last scan body
 	
 	print(current_region)
 	print(star_name)
