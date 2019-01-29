@@ -9,7 +9,7 @@ cmdr_name="CMDR FillInYourNameHere"
 current_region="Inner Orion Spur"
 #########################
 #Set to false to only run for last body scanned#
-run_continuously = False
+run_continuously = True
 polling_interval = 0.5 # seconds between journal checks
 #########################
 
