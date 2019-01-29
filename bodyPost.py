@@ -63,10 +63,15 @@ def check(first_run = False):
 		#if '"timestamp":' in segment:
 		#	time_sc = segment.split('":"')[1]
 			#print(time_sc)
+		if '"StarType"' in segment:
+			if not (first_run and run_continuously): # don't print error messages in first run
+				print("%s is a star" % body_name)
+			return #we are not interested in stars
 		if '"Landable"' in segment:
 			landable = segment.split('":')[1]
-			if landable == "false" and not (first_run and run_continuously): # don't print error messages in first run
-				print("Planet %s is not landable." % body_name)
+			if landable == "false":
+				if not (first_run and run_continuously): # don't print error messages in first run
+					print("Planet %s is not landable." % body_name)
 				return #planet is not landable and has no POIs
 	
 	if first_run and run_continuously:
@@ -96,7 +101,10 @@ def check(first_run = False):
 	
 	
 	#Last step - Planet types are differently named. Let's try to match them to the form!
-	if planet_class in "Icy body":
+	if planet_class == "":
+		print("Body %s is not a planet." % body_name)
+		return #Invalid body
+	elif planet_class in "Icy body":
 		planet_class = "Ice"
 	elif planet_class in "Rocky body":
 		planet_class = "Rocky"
