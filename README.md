@@ -6,7 +6,9 @@ Original script by CMDR Flammenhand/ThePrinceOfEverbang.
 Purpose:<br>
 The script will read the Elite: Dangerous Player Journal files and when a scan is performed it will open in the browser the scouting report form with most fields already filled in.<br>
 The script has two modes of operation:<br>
-1) It can continuously run in background and it will open the browser for every landable planet scanned.
+1) It can continuously run in background and it will open the browser for every landable planet scanned. WARNING: the script is pretty simple at the moment and can only detect the last
+scan happened in the last 0.5 seconds. It is reasonable to assume you won't be able to scan a planet with POIs in less than 0.5 seconds :) this parameter can be changed anyway at the start
+of the script.
 2) It can be run for a single scan; in this case the script will only open the browser for the last body scanned (if landable).
 
 The script will not open the form if you have scanned a star/brown dwarf/etc. or if the scanned planet is not landable (because it such cases it cannot have any POIs, so no form is needed).

@@ -10,6 +10,7 @@ current_region="Inner Orion Spur"
 #########################
 #Set to false to only run for last body scanned#
 run_continuously = True
+polling_interval = 0.5 # seconds between journal checks
 #########################
 
 last_body_opened = None
@@ -132,6 +133,6 @@ while True:
 		check()
 		if not run_continuously:
 			break
-		time.sleep(0.5)
+		time.sleep(polling_interval)
 	except KeyboardInterrupt:
 		break
