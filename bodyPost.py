@@ -12,11 +12,11 @@ current_region="Inner Orion Spur"
 run_continuously = True
 #########################
 
-last_time_opened = None
+last_body_opened = None
 first_run = True
 
 def check():
-	global last_time_opened
+	global last_body_opened
 	
 	#Get most recent Journal File
 	newest = max(glob.iglob('*.log'), key=os.path.getctime)
@@ -54,13 +54,9 @@ def check():
 			body_name = segment.split('"')[3]
 		if "PlanetClass" in segment:
 			planet_class = segment.split('"')[3]
-		if '"timestamp":' in segment:
-			time_sc = segment.split('":"')[1]
+		#if '"timestamp":' in segment:
+		#	time_sc = segment.split('":"')[1]
 			#print(time_sc)
-			if time_sc != last_time_opened:
-				last_time_opened = time_sc
-			else:
-				return
 		if '"Landable"' in segment:
 			landable = segment.split('":')[1]
 			if landable == "false":
@@ -115,6 +111,12 @@ def check():
 	body_name = body_name.lower()
 	body_name = body_name.swapcase()
 	material_list = material_list.title()
+	
+	#avoid opening the browser twice for the same body
+	if body_name != last_body_opened:
+		last_body_opened = body_name
+	else:
+		return
 	
 	print(current_region)
 	print(star_name)
