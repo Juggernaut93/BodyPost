@@ -14,6 +14,7 @@ polling_interval = 0.5 # seconds between journal checks
 #########################
 
 last_body_opened = None
+last_insufficient = False
 
 def check(first_run = False):
 	global last_body_opened
@@ -37,9 +38,16 @@ def check(first_run = False):
 			last_system = entry
 			break
 	
-	if last_scan == "" or last_system == "":
-		print("Insufficient information in last Journal log.")
-		return #insufficient information
+	if last_scan == "":
+		if not run_continuously:
+			print("No scan found in the last journal log.")
+		return
+	if last_system == "":
+		if not last_insufficient:
+			print("No current system information available. Please engage/disengage Supercruise to get current system info.")
+			last_insufficient = True
+		return #we should not be here, if there is a scan, there should necessarily be a StarSystem field
+	last_insufficient = False
 	
 	##Time to pretty-fy!
 	body_name = ""
