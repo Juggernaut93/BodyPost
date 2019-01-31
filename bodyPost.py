@@ -99,7 +99,7 @@ def check(first_run = False):
 	if check_mats:
 		findable = ["antimony","arsenic","boron","cadmium","carbon","chromium","germanium","iron","lead","manganese","mercury","molybdenum","nickel","niobium","phosphorus","polonium","rhenium","ruthenium","selenium","sulphur","technetium","tellurium","tin","tungsten","vanadium","yttrium","zinc","zirconium"]
 		for segment in last_scan:
-			if any(x in segment for x in findable):
+			if any(('"%s"' % x) in segment for x in findable):
 				material_list += segment.split('"')[-2]
 				percent = last_scan[last_scan.index(segment)+1].split(":")[-1]
 				percent = percent.split("}")[0]
