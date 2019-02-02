@@ -12,7 +12,7 @@ The script has now three modes of operation:<br>
 When the script reads "LOCATIONS" together with "GEOLOGICAL (X)", "BIOLOGICAL (X)", "THARGOID (X)" or "HUMAN (X)" (where X is a number) in the correct area of the screen, it will check the player Journal to read data about
 the last scanned planet (system and body names, composition, etc.) and will open the form in the browser with every information already filled in. Please note that the OCR part is still work in progress,
 and can sometimes mistake a 9 for a 3, or a 6 for a 5, that's why you'll have to rapidly check if the numbers put in are correct. If you scan a planet and the tool does not immediately open the form, it
-means it hasn't recognized some character correctly; waiting a bit (usually no more than 1-2 seconds) will solve the problem.
+means it hasn't recognized some character correctly; waiting a bit (no more than 1-2 seconds) usually solves the problem.
 2) `run_continuously = True` and `useOCR = False`: the script will continuously run in background and it will open the browser for every landable planet scanned. In this mode, the script can only detect the last
 scan happened in the last 0.2 seconds. It is reasonable to assume you won't be able to scan another planet with POIs in less than 0.2 seconds :) this parameter can be changed anyway at the start
 of the script (`polling_interval`).<br>
