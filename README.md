@@ -13,14 +13,15 @@ When the script reads "LOCATIONS" together with "GEOLOGICAL (X)", "BIOLOGICAL (X
 the last scanned planet (system and body names, composition, etc.) and will open the form in the browser with every information already filled in. Please note that the OCR part is still work in progress,
 and can sometimes mistake a 9 for a 3, or a 6 for a 5, that's why you'll have to rapidly check if the numbers put in are correct. If you scan a planet and the tool does not immediately open the form, it
 means it hasn't recognized some character correctly; waiting a bit (no more than 1-2 seconds) usually solves the problem.
-2) `run_continuously = True` and `useOCR = False`: the script will continuously run in background and it will open the browser for every landable planet scanned. With these settings, the script will NOT use OCR and won't
+2) `run_continuously = True` and `useOCR = False`: the script will continuously run in background and it will open the browser for every landable planet scanned*. With these settings, the script will NOT use OCR and won't
 be able to fill in the form the number of POIs found.<br>
-2) `run_continuously = False`: the script will run for a single scan; in this case the script will only open the browser for the last body scanned (if landable).
+2) `run_continuously = False`: the script will run for a single scan; in this case the script will only open the browser for the last body scanned (if landable)*.
 
 The script will not open the form if you have scanned a star/brown dwarf/etc. or if the scanned planet is not landable (because in such cases it cannot have any POIs, so no form is needed).
-Note that the journal does NOT currently contain info about the number of POIs for each planet, so when OCR is *disabled* the script WILL open the form when scanning planets that are landable but do not have POIs.
 
-Note that you can change the interval at which the script checks the screen/journal by changing the `polling_interval` parameter at the start of the script.
+*Note that the journal does NOT currently contain info about the number of POIs for each planet, so when OCR is *disabled* the script WILL open the form when scanning planets that are landable but do not have POIs.
+
+Note also that you can change the interval at which the script checks the screen/journal by changing the `polling_interval` parameter at the start of the script.
 
 How to "install":<br>
 1: Install Python 3.x. https://www.python.org/<br>
