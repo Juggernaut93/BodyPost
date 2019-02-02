@@ -26,7 +26,7 @@ Note also that you can change the interval at which the script checks the screen
 How to "install":<br>
 1: Install Python 3.x. https://www.python.org/<br>
 2: Install Tesseract: https://github.com/UB-Mannheim/tesseract/wiki (the tool was tested with the Windows 64-bit 4.0.0.20181030 version).
-Be sure to have added the Tesseract folder in the PATH environment variable, as explained in the installation instructions here: https://github.com/UB-Mannheim/tesseract/wiki.<br>
+Be sure to add the Tesseract folder in the PATH environment variable, as explained in the installation instructions here: https://github.com/UB-Mannheim/tesseract/wiki.<br>
 3: Install the required libraries with the following command: `pip install Pillow python-opencv pytesseract mss`.<br>
 4: Download/copy the script.<br>
 5: Place it into the same folder that your Journal Files get written to.<br>
