@@ -36,4 +36,4 @@ Be sure to add the Tesseract folder in the PATH environment variable, as explain
    
 Usage:<br>
 If you have Python installed, double-clicking the python script should suffice. You can also bind it to a keymap - google is your friend. :)<br>
-When running the script in continuous mode, you can interrupt it using Ctrl+C.
+When running the script in continuous mode, you can interrupt it using Ctrl+Break.
