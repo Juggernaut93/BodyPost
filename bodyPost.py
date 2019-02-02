@@ -11,7 +11,7 @@ current_region="Inner Orion Spur"
 #Set to false to only run for last body scanned#
 run_continuously = True
 polling_interval = 0.2 # seconds between journal/OCR checks
-useOCR = True
+useOCR = True # only works in continuous mode
 #########################
 # OCR parameters
 ratio = 16/9
