@@ -31,7 +31,7 @@ Be sure to add the Tesseract folder in the PATH environment variable, as explain
 4: Download/copy the script.<br>
 5: Place it into the same folder that your Journal Files get written to.<br>
    Usually that's C:\Users\<username>\Saved Games\Frontier Developments\Elite Dangerous<br>
-6: Open up the Script in a text editor and change your CMDR Name. It's the 8th Line, in the marks.<br>
+6: Open up the Script in a text editor and change your CMDR Name and the `current_region`. 8th and 9th line, respectively.<br>
 7: If you want to disable continuous mode, set `run_continuously` to `False`. If you want to disable OCR, set `useOCR` to `False`.
    
 Usage:<br>
